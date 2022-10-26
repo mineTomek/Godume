@@ -1,39 +1,35 @@
 .App, body {
   font-size: 1rem;
 
-  background-color: #282c34;
+  background-color: var(--headercolor);
 
   height: calc(100vh - var(--headerheight));
 
   color: white;
 
   --headerheight: 15mm;
+
+  --headercolor: #282c34;
 }
-
-
 
 .Account-icon {
   height: calc(var(--headerheight) - 5px);
-  justify-self: right;
-  margin-right: 10px;
-  margin-top: 3px;
-  margin-bottom: 3px;
-
+  margin: 5px;
   cursor: pointer;
-
   transition: 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: inherit;
+  background-color: var(--headercolor);
 }
 
 .Account-icon:hover {
-  transform: scale(110%);
+  transform: rotate(360deg) scale(105%);
 }
 
-.App-header {
-  background-color: #1d2027;
+.Header {
+  background-color: var(--headercolor);
   height: var(--headerheight);
   display: flex;
   align-items: center;
-  justify-content: right;
   font-size: calc(10px + 2vmin);
   position: fixed;
   top: 0;
@@ -41,7 +37,11 @@
   right: 0;
 }
 
-.App-content {
+.Menu-scrollbar {
+  overflow-x: scroll;
+}
+
+.Content {
   margin-top: var(--headerheight);
 }
 

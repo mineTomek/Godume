@@ -1,13 +1,17 @@
-import logo from './images/account.svg';
+import accountIcon from './images/account.svg';
 import './App.css';
+import Servers from './Servers.js';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="Account-icon" alt="account"/>
+      <header className="Header">
+        <div className="Menu-scrollbar">
+          <img src={accountIcon} className="Account-icon" alt="account"/>
+          <Servers amount="10"/>
+        </div>
       </header>
-      <div className="App-content">
+      <div className="Content">
         <p>
           Content
         </p>
