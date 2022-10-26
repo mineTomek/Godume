@@ -1,0 +1,23 @@
+.Server {
+    background-color: #6dc53b;
+    min-width: calc(var(--headerheight) - 5px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.Server-container {
+    height: var(--headerheight);
+    display: flex;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    position: fixed;
+    top: 0;
+    left: calc(var(--headerheight) + 5px);
+    /* right: calc(100vw - ((var(--headerheight) - 5px) * 6)); */
+    right: 0;
+}
+
+.Server-container::-webkit-scrollbar {
+    display: none;
+  }
