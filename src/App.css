@@ -1,32 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+:root {
+  --headerheight: 15mm;
+
+  --dark-1: hsl(220, 13%, 18%);
+
+  --dark-2: hsl(225, 13%, 15%);
+
+  --dark-3: hsl(225, 13%, 10%);
+
+  --color-primary: #3A4625;
+
+  --color-secondary: #118384/*#256333*/;
+
+  --color-accent: #D3A133;
+
+  --color-accent-2: #FEEC80;
+}
+
 .App, body {
   font-size: 1rem;
 
-  background-color: var(--headercolor);
+  font-family: 'Futura', sans-serif;
 
-  height: calc(100vh - var(--headerheight));
+  background-color: var(--dark-1);
+
+  /* height: calc(100vh - var(--headerheight)); */
 
   color: white;
-
-  --headerheight: 15mm;
-
-  --headercolor: #282c34;
 }
 
 .Account-icon {
   height: calc(var(--headerheight) - 5px);
   margin: 5px;
   cursor: pointer;
-  transition: 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   position: inherit;
-  background-color: var(--headercolor);
+  border-radius: 50%;
 }
 
 .Account-icon:hover {
-  transform: rotate(360deg) scale(105%);
+  transform: rotate(15deg) scale(105%);
+}
+
+.Account-icon:active {
+  transition-duration: 0.2s;
+  transform: rotate(-10deg) scale(95%);
+  background-color: var(--color-accent);
 }
 
 .Header {
-  background-color: var(--headercolor);
+  background-color: var(--dark-3);
   height: var(--headerheight);
   display: flex;
   align-items: center;
@@ -35,14 +59,28 @@
   top: 0;
   left: 0;
   right: 0;
+
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 .Menu-scrollbar {
   overflow-x: scroll;
+  float: right;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Menu-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .Content {
-  margin-top: var(--headerheight);
+  margin-top: calc(var(--headerheight) + 10px);
 }
 
 a {

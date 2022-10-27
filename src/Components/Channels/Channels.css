@@ -1,0 +1,50 @@
+.Channels-container {
+    background-color: var(--dark-3);
+    /* border-right: 2px solid black; */
+    position: fixed;
+    left: 0;
+    width: 10rem;
+    height: 100vh;
+}
+
+.Channels-header {
+    --left-padding: 15px;
+    display: inline-block;
+    position: relative;
+    background-color: var(--dark-2);
+    height: 80px;
+    width: calc(100% - var(--left-padding));
+    padding-left: var(--left-padding);
+    font-size: 15px;
+}
+
+.Top-toggle {
+    position: relative;
+    top: 0;
+    display: flex;
+    padding-top: 10px;
+}
+
+.Exp-arrow {
+    /* position: inherit; */
+    width: 40px;
+    /* display: inline; */
+    transform: translateY(-10%) translateX(40px) scale(120%);
+    /* align-self: end; */
+    transition: .5s ease-in-out/*cubic-bezier(0.68, -0.55, 0.265, 1.55)*/;
+
+    /* transform: translateY(-10%) translateX(40px) scale(90%) rotate(.5turn); */
+}
+
+/* .Exp-arrow:hover {
+    transform: translateY(-10%) translateX(40px) scale(120%) rotate(10deg);
+} */
+
+/* .Exp-arrow:active {
+    transform: translateY(-10%) translateX(40px) scale(90%) rotate(20deg);
+} */
+
+#Header-content {
+    transition: .3s ease-in-out;
+    clip-path: inset(10px 20px 30px 40px);
+}

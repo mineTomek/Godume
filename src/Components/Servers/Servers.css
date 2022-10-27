@@ -1,0 +1,26 @@
+.Server {
+    min-width: calc(var(--headerheight) - 5px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    text-align: center;
+
+    margin-left: 5px;
+    margin-right: 5px;
+
+    transition: 0.5s ease;
+}
+
+.Server:hover {
+    transform: scale(110%);
+}
+
+.Server:active {
+    transform: scale(90%);
+}
+
+.Server-container {
+    height: var(--headerheight);
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    display: inline-flex;
+}

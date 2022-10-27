@@ -14,17 +14,17 @@
   <g
      id="layer1">
     <circle
-       style="fill:#454545;fill-opacity:0.498294"
+       style="fill:#454545;fill-opacity:0.5"
        id="path115"
        cx="360"
        cy="360"
        r="360" />
     <path
-       style="fill:#454545;fill-opacity:0.498294"
+       style="fill:#FEEC80;fill-opacity:0.5"
        d="m 141.45984,577.8785 h 434.91377 c 0,0 -12.03913,-192.62617 -215.19954,-192.62617 -216.72795,0 -219.71423,192.62617 -219.71423,192.62617 z"
        id="path956" />
     <ellipse
-       style="fill:#454545;fill-opacity:0.498294"
+       style="fill:#FEEC80;fill-opacity:0.5"
        id="path1057"
        cx="361.17407"
        cy="275.39523"

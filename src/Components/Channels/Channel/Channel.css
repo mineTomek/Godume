@@ -1,0 +1,11 @@
+.Channel-box {
+    display: inline-block;
+    width: calc(100% - 10px);
+    height: 1cm;
+
+    background-color: var(--dark-1);
+
+    margin: 5px;
+
+    cursor: pointer;
+}
