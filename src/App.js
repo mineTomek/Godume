@@ -1,3 +1,4 @@
+import React from 'react';
 import accountIcon from './images/account.svg';
 import './App.css';
 import Servers from './Components/Servers/Servers.js';

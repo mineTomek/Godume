@@ -1,3 +1,4 @@
+import React from 'react';
 import './Channels.css';
 import arrow from './../../images/tri-arrow.svg';
 
@@ -10,8 +11,8 @@ function Channels() {
     return (
         <div className='Channels-container'>
             <div className='Channels-header'>
-                <div className='Top-toggle' onClick={toogleHeader}>
-                    Godume <img src={arrow} alt='expand/collapse' className='Exp-arrow'/>
+                <div className='Top-toggle'>
+                    Godume <img src={arrow} alt='expand/collapse' className='Exp-arrow' onClick={toogleHeader}/>
                 </div>
                 <div id='Header-content'>
                     Content!!!
@@ -25,11 +26,11 @@ function Channels() {
 function toogleHeader(event) {
     if (isHeaderFolded) {
         event.target.style.transform = 'translateY(-10%) translateX(40px) scale(120%)';
-        document.getElementById('Header-content').style.clipPath = 'inset(10px 20px 30px 40px)';
+        document.getElementById('Header-content').style.clipPath = 'inset(0 0)';
         isHeaderFolded = false;
     } else {
         event.target.style.transform = 'translateY(-10%) translateX(40px) scale(100%) rotate(.5turn)';
-        document.getElementById('Header-content').style.clipPath = 'inset(0 0 30px 0)';
+        document.getElementById('Header-content').style.clipPath = 'inset(100% 0)';
         isHeaderFolded = true;
     }
     console.log(event);
