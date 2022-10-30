@@ -1,39 +1,32 @@
 import React from 'react';
 import './Channels.css';
-import arrow from './../../images/tri-arrow.svg';
-
 import Channel from './Channel/Channel.js';
 
-let isHeaderFolded = false;
-
-function Channels() {
+function Channels(props) {
+    let channelNames = ['Introductions', 'General', 'YouTube',     'Memes', 'Off-topic', 'Ideas', 'Bot Commands', 'Bugs', 'General'];
+    let channelTypes = ['text',          'text',    'announcement','text',  'text',      'text',  'text',         'forum','voice'  ];
+    
+    let channels = [...Array(9)].map((e, i) => (<Channel key={i} name={channelNames[i]} type={channelTypes[i]}/>));
 
     return (
         <div className='Channels-container'>
             <div className='Channels-header'>
-                <div className='Top-toggle'>
-                    Godume <img src={arrow} alt='expand/collapse' className='Exp-arrow' onClick={toogleHeader}/>
+                <div className='Server-name'>
+                    {props.currentServer.name}
                 </div>
                 <div id='Header-content'>
-                    Content!!!
+                    Members: {Intl.NumberFormat(getLang(), { notation: 'compact' }).format(props.currentServer.members)}
                 </div>
             </div>
-            <Channel />
+            {channels}
         </div>
     );
 }
 
-function toogleHeader(event) {
-    if (isHeaderFolded) {
-        event.target.style.transform = 'translateY(-10%) translateX(40px) scale(120%)';
-        document.getElementById('Header-content').style.clipPath = 'inset(0 0)';
-        isHeaderFolded = false;
-    } else {
-        event.target.style.transform = 'translateY(-10%) translateX(40px) scale(100%) rotate(.5turn)';
-        document.getElementById('Header-content').style.clipPath = 'inset(100% 0)';
-        isHeaderFolded = true;
-    }
-    console.log(event);
-}
+function getLang() {
+    if (navigator.languages !== undefined) 
+      return navigator.languages[0]; 
+    return navigator.language;
+  }
 
 export default Channels;
