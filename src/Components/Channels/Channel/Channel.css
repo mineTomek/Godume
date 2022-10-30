@@ -1,11 +1,43 @@
 .Channel-box {
-    display: inline-block;
-    width: calc(100% - 10px);
+    display: inline-flex;
+    
+    align-content: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: calc(100% - 15px);
     height: 1cm;
 
     background-color: var(--dark-1);
 
     margin: 5px;
+    padding-left: 5px;
 
     cursor: pointer;
+
+    border-radius: .7rem;
+
+    transition: .1s ease-in-out;
+}
+
+.Channel-box:hover {
+    transform: scale(105%);
+}
+
+.Channel-box > i {
+    transition: .1s;
+}
+
+.Channel-box:hover > i {
+    transform: rotate(-5deg);
+    color: var(--color-accent);
+}
+
+.Channel-type {
+    margin-right: 5px;
+}
+
+.Error {
+    color: red;
 }
