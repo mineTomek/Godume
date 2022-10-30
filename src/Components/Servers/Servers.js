@@ -8,14 +8,9 @@ function Servers() {
         "var(--color-secondary)", 
         "var(--color-primary)"]
 
-    let servers = [...Array(20)].map((e, i) => (<div className="Server" style={{backgroundColor: colors[Math.floor(Math.random()*colors.length)]}} key={i}></div>));
+    let servers = [...Array(100)].map((e, i) => (<div className="Server" style={{backgroundColor: colors[Math.floor(Math.random()*colors.length)]}} key={i}></div>));
 
-    var DOMservers = document.getElementsByClassName("Server");
-    for (var i = 0; i < DOMservers.length; i++) {
-        console.log(DOMservers[i].style.backgroundcolor);
-    }
-    
-    return (<div class="Server-container">{servers}</div>);
+    return (<div className="Server-container">{servers}</div>);
 }
 
 export default Servers;
