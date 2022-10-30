@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
+/* Varibles */
 :root {
   --headerheight: 15mm;
 
@@ -8,6 +9,12 @@
   --dark-2: #21242b;
 
   --dark-3: #16181d;
+
+  --dark-4: #121317;
+
+  --light-1: #ffffff;
+
+  --light-2: #cfcfcf;
 
   --color-primary: #3A4625;
 
@@ -18,14 +25,16 @@
   --color-accent-2: #646436;
 }
 
+::selection {
+  background-color: var(--color-accent-2);
+}
+
 .App, body {
   font-size: 1rem;
 
   font-family: 'Futura', sans-serif;
 
   background-color: var(--dark-1);
-
-  /* height: calc(100vh - var(--headerheight)); */
 
   color: white;
 }
@@ -83,15 +92,50 @@
   margin-top: calc(var(--headerheight) + 10px);
 }
 
-.Content > div.Inside-content {
-  margin-left: calc(10rem);
+.Content > div.Inner-content {
+  margin-left: 10rem;
 }
 
-.Inside-content > p {
-  margin-left: 10px;
+.User-login {
+  position: fixed;
+  background-color: var(--dark-4);
+  padding: 30px;
+
+  --spaces: 10%;
+  top: var(--spaces);
+  left: var(--spaces);
+  bottom: var(--spaces);
+  right: var(--spaces);
+
+  border-radius: 1rem;
+
+  transform: translateY(110%);
+
+  transition: 1s;
 }
+
+.User-login[name='opened'] {
+  transform: translateY(0);
+}
+
+.User-login > input {
+  margin-top: 10px;
+}
+
 
 a {
   color: #61dafb;
   text-decoration: none;
+}
+
+input {
+  background-color: var(--dark-2);
+  border: 0;
+  padding: 10px;
+  border-radius: 20px;
+  color: var(--light-1);
+}
+
+input:focus {
+  outline-width: 0;
 }
