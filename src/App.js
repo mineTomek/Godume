@@ -16,7 +16,7 @@ let currentServer = {
   members: 549291
 }
 
-var email, password;
+var email, password = '';
 
 let user;
 
@@ -51,12 +51,9 @@ function App() {
         <div className='Menu-scrollbar'>
           <img src={accountIcon} className='Account-icon' alt='account' onClick={(event) => {
             var form = document.getElementsByClassName('User-login')[0];
-            if (form.getAttribute('name') === 'closed') {
-              form.setAttribute('name', 'opened');
-            } else {
-              form.setAttribute('name', 'closed');
-            }
+            form.setAttribute('opened', 'true');
           }}/>
+
           <Servers/>
         </div>
       </header>
@@ -64,8 +61,6 @@ function App() {
         <Channels currentServer={currentServer}/>
         <div className='Inner-content'>
           Hello! I'm <b>Content</b>!
-          <br/>
-          I'm not indented!
 
           <LoginForm />
 
@@ -78,23 +73,45 @@ function App() {
 function LoginForm() {
   return (
     <>
-    <div className='User-login' name='closed'>
-      <input
-        type='text'
-        placeholder='Email'
-        onChange={(event) => {
-          email = event.target.value;
-          console.log(email);
-        } } 
-      />
-      <input
-        type='password'
-        placeholder='Password'
-        onChange={(event) => {
-          password = event.target.value;
-          console.log(password);
-        } } 
-      />
+    <div className='User-login' opened='false'>
+      <p className='Login-form-title'>Sign Up</p>
+      <i className='fa-solid fa-xmark Close-login-form' onClick={() => {
+        var form = document.getElementsByClassName('User-login')[0];
+        form.setAttribute('opened', 'false');
+        console.log(form);
+      }}></i>
+
+      <br/>
+
+      <div className='Form'>
+        <p className='Error-text' id='Form-error' style={{display: 'none'}}>Error</p>
+
+        <input
+          type='text'
+          placeholder='Email'
+          className='Creadentials'
+          onChange={(event) => {
+            email = event.target.value;
+            console.log(email);
+          } } 
+        />
+        
+        <input
+          type='password'
+          placeholder='Password'
+          className='Creadentials'
+          onChange={(event) => {
+            password = event.target.value;
+            console.log(password);
+          } } 
+        />
+
+        <button
+          onClick={() => {
+            signUpUser(email, password);
+          } } > Sign Up
+        </button>
+      </div>
     </div>
     </>
   );
@@ -103,23 +120,38 @@ function LoginForm() {
 function signUpUser(email, password) {
   console.log('User signUp: ' + email + ' ' + password);
 
+  document.getElementsByName('Creadentials').forEach((input) => {
+    input.value = '';
+  });
+
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
       user = userCredential.user;
-      // ...
+
+      hideFormError();
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      // ..
+
+      console.error(`#'${errorCode}': ${errorMessage}`);
+
+      if (errorCode === 'auth/invalid-email') {
+        showFormError('This email is invalid!');
+      }
     });
 }
 
-// function getLang() {
-//   if (navigator.languages !== undefined) 
-//     return navigator.languages[0]; 
-//   return navigator.language;
-// }
+function showFormError(error) {
+  const errorElm = document.getElementById('Form-error');
+  errorElm.setAttribute('style', 'display: block;');
+
+  errorElm.innerHTML = error;
+}
+
+function hideFormError() {
+  document.getElementById('Form-error').setAttribute('style', 'display: none;');
+}
 
 export default App;
