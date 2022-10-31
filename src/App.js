@@ -2,7 +2,7 @@ import React from 'react';
 import accountIcon from './images/account.svg';
 
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// import { getAnalytics } from "firebase/analytics";
 import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 
 import './App.css';
