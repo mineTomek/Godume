@@ -1,3 +1,3 @@
 # Godume
 
-### Godume is an alternative to Discord.
+### Godume is an open-source alternative to Discord.
