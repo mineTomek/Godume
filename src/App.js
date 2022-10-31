@@ -1,8 +1,6 @@
 import React from 'react';
 import accountIcon from './images/account.svg';
 
-import { env } from 'process';
-
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
@@ -26,12 +24,12 @@ let user;
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDKvWdLD6toD5fu12JOK90v2vA5izW-7G0",
-  authDomain: env.FIREBASE_AUTH_DOMAIN,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
   projectId: "godume-app",
-  storageBucket: env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: env.FIREBASE_MESSAGING_SENDER_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
   appId: "1:632887061818:web:afb0b0f35b68b1a036f403",
-  measurementId: env.FIREBASE_MESURMENT_ID
+  measurementId: process.env.FIREBASE_MESURMENT_ID
 };
 
 // Initialize Firebase
