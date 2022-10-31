@@ -3,11 +3,19 @@ import './Channels.css';
 import Channel from './Channel/Channel.js';
 
 function Channels(props) {
-    let channelNames = ['Introductions', 'General', 'YouTube',     'Memes', 'Off-topic', 'Ideas', 'Bot Commands', 'Bugs', 'General'];
-    let channelTypes = ['text',          'text',    'announcement','text',  'text',      'text',  'text',         'forum','voice'  ];
-    
-    let channels = [...Array(9)].map((e, i) => (<Channel key={i} name={channelNames[i]} type={channelTypes[i]}/>));
+    let channels;
 
+    let channelNames = ['Introductions', 'General', 'YouTube',     'Memes', 'Off-topic', 'Bot Commands', 'Ideas',   'Bugs', 'General - Voice', 'Updates' ];
+    let channelTypes = ['text',          'text',    'announcement','text',  'text',      'text',         'forum',   'forum','voice',           'calendar'];
+    
+    if (channelNames.length !== channelTypes.length) {
+        channels = (
+            <p style={{color: 'red'}}>Error!</p>
+        );
+    } else {
+        channels = [...Array(channelNames.length)].map((e, i) => (<section id={channelNames[i]}><Channel key={i} name={channelNames[i]} type={channelTypes[i]}/></section>));
+    }
+    
     return (
         <div className='Channels-container'>
             <div className='Channels-header'>

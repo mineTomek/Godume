@@ -20,17 +20,23 @@
 
     transition: .1s ease-in-out;
 }
-
 .Channel-box:hover {
-    transform: scale(105%);
+    transform: scale(103%);
+}
+.Channel-box:active {
+    transform: scale(100%) translateY(2px);
+    background-color: var(--dark-2);
 }
 
 .Channel-box > i {
     transition: .1s;
 }
-
 .Channel-box:hover > i {
-    transform: rotate(-5deg);
+    transform: rotate(-5deg) scale(105%);
+    color: var(--color-accent);
+}
+.Channel-box:active > i {
+    transform: rotate(5deg) scale(95%);
     color: var(--color-accent);
 }
 
