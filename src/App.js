@@ -124,6 +124,8 @@ function signUpUser(email, password) {
       // Signed in 
       user = userCredential.user;
 
+      console.log(user.displayName);
+
       // document.getElementById('User-name').innerText = `Hello, ${user.displayName}!`;
 
       for(var input of document.getElementsByClassName('Creadentials')) {
