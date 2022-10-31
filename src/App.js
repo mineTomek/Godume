@@ -73,6 +73,7 @@ function LoginForm() {
     <>
     <div className='User-login' opened='false'>
       <p className='Login-form-title'>Sign Up</p>
+      <p id='User-name' className='Login-form-title'></p>
       <i className='fa-solid fa-xmark Close-login-form' onClick={() => {
         var form = document.getElementsByClassName('User-login')[0];
         form.setAttribute('opened', 'false');
@@ -116,16 +117,18 @@ function LoginForm() {
 }
 
 function signUpUser(email, password) {
-  console.log('User signUp: ' + email + ' ' + password);
-
-  document.getElementsByName('Creadentials').forEach((input) => {
-    input.value = '';
-  });
+  console.log('User sign up: ' + email + ' ' + password);
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
       user = userCredential.user;
+
+      // document.getElementById('User-name').innerText = `Hello, ${user.displayName}!`;
+
+      for(var input of document.getElementsByClassName('Creadentials')) {
+        input.value = '';
+      };
 
       hideFormError();
     })
